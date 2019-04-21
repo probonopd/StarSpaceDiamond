@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"Cosmic Citadel"
+	],
+	"copyright": "Copyright © 2019, Cosmic Citadel",
+	"dependencies": {
+		"dgame": "~>0.6.6"
+	},
+	"description": "A game about a ship in space that's a ship in space and it's a game.",
+	"license": "proprietary",
+	"name": "starspacediamond"
+}

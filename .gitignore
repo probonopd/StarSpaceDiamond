@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/starspacediamond
+starspacediamond.so
+starspacediamond.dylib
+starspacediamond.dll
+starspacediamond.a
+starspacediamond.lib
+starspacediamond-test-*
+*.exe
+*.o
+*.obj
+*.lst
