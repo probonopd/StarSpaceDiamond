@@ -31,7 +31,7 @@ class Ship : GameObject {
   float turnSpeed;
   float maxSpeed;
   float velx = 0;
-  float vely= 0;
+  float vely = 0;
 
   bool turnLeft = false;
   bool turnRight = false;
@@ -47,6 +47,12 @@ class Ship : GameObject {
     float dy = sin(deg);
     velx += dx * speed * dt;
     vely += dy * speed * dt;
+
+    if (velx > maxSpeed) velx = maxSpeed;
+    else if (velx < -maxSpeed) velx = -maxSpeed;
+    if (vely > maxSpeed) vely = maxSpeed;
+    else if (vely < -maxSpeed) vely = -maxSpeed;
+    
     sprite.move(velx, vely);
   }
 }
