@@ -41,13 +41,18 @@ class Ship : GameObject {
   }
 
   override void move(uint dt) {
-    //float deg = sprite.getRotation() * PI / 180.0;
-    float deg = sprite.getRotation();
+    float deg = sprite.getRotation() * PI / 180.0;
     float dx = cos(deg);
+    writeln("dx ", dx);
     float dy = sin(deg);
+    writeln("dy ", dy);
     velx += dx * speed * dt;
+    writeln("speed ", speed);
+    writeln("velx ", velx);
     vely += dy * speed * dt;
-    sprite.move(velx, vely);
+    writeln("vely ", vely);
+    writeln("dt ", dt);
+    sprite.move(dx * speed * dt * 100, dy * speed * dt * 100);
     writeln(velx, ":", vely);
   }
 }
