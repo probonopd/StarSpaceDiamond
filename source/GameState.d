@@ -76,8 +76,9 @@ class PlayingState : GameState {
     stars1T = Texture(Surface("resources/stars1.png"));
     stars1 = new Sprite(stars1T);
     ship = new Ship("resources/ship.png");
-    ship.speed = 0.0006;
+    ship.speed = 0;
     ship.turnSpeed = 0.2;
+    ship.acceleration = 0.0006;
     ship.maxSpeed = 0.6;
     ship.sprite.setRotationCenter(ship.tex.width() / 2, ship.tex.height() / 2);
     ship.sprite.setPosition(win.getSize().width / 2, win.getSize().height / 2);
@@ -96,6 +97,7 @@ class PlayingState : GameState {
             }
             if (evt.keyboard.key == Keyboard.Key.Up) {
               ship.shipUp = true;
+              ship.speed = ship.acceleration;
             }
           break;
           case Event.Type.KeyUp:
@@ -107,6 +109,7 @@ class PlayingState : GameState {
             }
             if (evt.keyboard.key == Keyboard.Key.Up) {
               ship.shipUp = false;
+              ship.speed = 0;
             }
           break;
           case Event.Type.Quit:
@@ -124,10 +127,10 @@ class PlayingState : GameState {
       else if (ship.turnRight) {
         ship.sprite.rotate(ship.turnSpeed * dt);
       }
-      if (ship.shipUp) {
+      //if (ship.shipUp) {
         //ship.sprite.move(0, -ship.speed * dt);
         ship.move(dt);
-      }
+      //}
 
       win.draw(stars1);
       win.draw(ship.sprite);
