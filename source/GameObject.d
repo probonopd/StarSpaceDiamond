@@ -30,8 +30,8 @@ class Ship : GameObject {
   float speed;
   float turnSpeed;
   float maxSpeed;
-  float velx;
-  float vely;
+  float velx = 0;
+  float vely= 0;
 
   bool turnLeft = false;
   bool turnRight = false;
@@ -53,7 +53,7 @@ class Ship : GameObject {
     vely += dy * speed * dt;
     writeln("vely ", vely);
     writeln("dt ", dt);
-    sprite.move(dx * speed * dt * 100, dy * speed * dt * 100);
+    sprite.move(velx, vely);
     writeln(velx, ":", vely);
   }
 }
