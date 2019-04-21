@@ -16,6 +16,7 @@ class GameObject {
 
   this(string file) {
     tex = Texture(Surface(file));
+    tex.setSmooth(true);
     width = tex.width();
     height = tex.height();
     sprite = new Sprite(tex);
