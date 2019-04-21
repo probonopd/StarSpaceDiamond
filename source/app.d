@@ -1,6 +1,6 @@
 import std.stdio;
-import Dgame.System.StopWatch;
 import Dgame.Window.Window;
+import Dgame.System.StopWatch;
 
 import GameState;
 
