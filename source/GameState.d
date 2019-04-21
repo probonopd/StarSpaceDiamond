@@ -78,8 +78,9 @@ class PlayingState : GameState {
     ship = new Ship("resources/ship.png");
     ship.speed = 0;
     ship.turnSpeed = 0.2;
-    ship.acceleration = 0.0006;
-    ship.maxSpeed = 0.6;
+    //ship.acceleration = 0.0006;
+    ship.acceleration = 0.003;
+    ship.maxSpeed = 2.0;
     ship.sprite.setRotationCenter(ship.tex.width() / 2, ship.tex.height() / 2);
     ship.sprite.setPosition(win.getSize().width / 2, win.getSize().height / 2);
   }
