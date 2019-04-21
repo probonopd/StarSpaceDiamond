@@ -6,7 +6,7 @@ import GameState;
 
 void main() {
 	Window win = Window(800, 600, "StarSpaceDiamond");
-	//win.setVerticalSync(Window.VerticalSync.Enable);
+	win.setVerticalSync(Window.VerticalSync.Enable);
 	//TitleState title = new TitleState(win);
 	GameState[int] state;
 	state[Tracker.TITLE] = new TitleState(win);
@@ -16,6 +16,6 @@ void main() {
 
 	while(Tracker.running) {
 		state[Tracker.currentState].render();
-		sw.wait(1000 / 60);
+		//sw.wait(1000 / 60);
 	}
 }
