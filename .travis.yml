@@ -1,7 +1,10 @@
+# This is an example for building a D application
+
 language: d
 dist: trusty
 sudo: false
 
+# Those were trial and error, is there a systematic way to know them?
 addons:
   apt:
     packages:
@@ -19,5 +22,7 @@ before_install:
 
 d:
   - dmd
-  - gdc
-  - ldc
+  # ldc
+
+after_success:
+  - ls
