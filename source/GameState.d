@@ -18,6 +18,7 @@ struct Tracker {
   static int currentState = TITLE;
   static bool running = true;
   static StopWatch sw;
+  static uint dt;
 }
 
 class GameState {
@@ -49,7 +50,7 @@ class TitleState : GameState {
           case Event.Type.KeyDown:
             if (evt.keyboard.key == Keyboard.Key.Return) {
               Tracker.currentState = Tracker.PLAYING;
-              Tracker.sw.reset();
+              //Tracker.sw.reset();
             }
           break;
           case Event.Type.Quit:
@@ -120,17 +121,17 @@ class PlayingState : GameState {
         }
       }
 
-      uint dt = Tracker.sw.getElapsedTicks();
-      Tracker.sw.reset();
+      //uint dt = Tracker.sw.getElapsedTicks();
+      //Tracker.sw.reset();
       if (ship.turnLeft) {
-        ship.sprite.rotate(-ship.turnSpeed * dt);
+        ship.sprite.rotate(-ship.turnSpeed * Tracker.dt);
       }
       else if (ship.turnRight) {
-        ship.sprite.rotate(ship.turnSpeed * dt);
+        ship.sprite.rotate(ship.turnSpeed * Tracker.dt);
       }
       //if (ship.shipUp) {
         //ship.sprite.move(0, -ship.speed * dt);
-        ship.move(dt);
+        ship.move();
       //}
 
       win.draw(stars1);

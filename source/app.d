@@ -1,6 +1,5 @@
 import std.stdio;
 import Dgame.Window.Window;
-import Dgame.System.StopWatch;
 
 import GameState;
 
@@ -12,10 +11,11 @@ void main() {
 	state[Tracker.TITLE] = new TitleState(win);
 	state[Tracker.PLAYING] = new PlayingState(win);
 	Tracker.currentState = Tracker.TITLE;
-	StopWatch sw = StopWatch();
 
 	while(Tracker.running) {
+		Tracker.dt = Tracker.sw.getElapsedTicks();
+		Tracker.sw.reset();
+		Tracker.sw.wait(1000 / 60);
 		state[Tracker.currentState].render();
-		//sw.wait(1000 / 60);
 	}
 }

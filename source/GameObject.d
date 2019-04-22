@@ -7,6 +7,8 @@ import Dgame.Graphic.Surface;
 import Dgame.Graphic.Texture;
 import Dgame.Graphic.Sprite;
 
+import GameState : Tracker;
+
 class GameObject {
   Texture tex;
   Sprite sprite;
@@ -22,7 +24,7 @@ class GameObject {
     sprite = new Sprite(tex);
   }
 
-  void move(uint dt) {}
+  void move() {}
 }
 
 class Ship : GameObject {
@@ -42,12 +44,12 @@ class Ship : GameObject {
     super(file);
   }
 
-  override void move(uint dt) {
+  override void move() {
     float deg = sprite.getRotation() * PI / 180.0;
     float dx = cos(deg);
     float dy = sin(deg);
-    velx += dx * speed * dt;
-    vely += dy * speed * dt;
+    velx += dx * speed * Tracker.dt;
+    vely += dy * speed * Tracker.dt;
 
     if (velx > maxSpeed) velx = maxSpeed;
     else if (velx < -maxSpeed) velx = -maxSpeed;
