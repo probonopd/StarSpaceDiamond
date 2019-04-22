@@ -97,6 +97,9 @@ class PlayingState : GameState {
               ship.shipUp = true;
               ship.speed = ship.acceleration;
             }
+            if (evt.keyboard.key == Keyboard.Key.R) {
+              ship.reset();
+            }
           break;
           case Event.Type.KeyUp:
             if (evt.keyboard.key == Keyboard.Key.Left) {

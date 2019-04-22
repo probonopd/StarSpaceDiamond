@@ -58,4 +58,8 @@ class Ship : GameObject {
 
     sprite.move(velx, vely);
   }
+
+  void reset() {
+    sprite.setPosition(300, 300);
+  }
 }
