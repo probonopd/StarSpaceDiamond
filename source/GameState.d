@@ -44,13 +44,11 @@ class TitleState : GameState {
   }
 
   override void render() {
-    //while(Tracker.running) {
       while(win.poll(&evt)) {
         switch(evt.type) {
           case Event.Type.KeyDown:
             if (evt.keyboard.key == Keyboard.Key.Return) {
               Tracker.currentState = Tracker.PLAYING;
-              //Tracker.sw.reset();
             }
           break;
           case Event.Type.Quit:
@@ -62,7 +60,6 @@ class TitleState : GameState {
 
       win.draw(title);
       win.display();
-    //}
   }
 }
 
@@ -87,7 +84,6 @@ class PlayingState : GameState {
   }
 
   override void render() {
-    //while(Tracker.running) {
       while(win.poll(&evt)) {
         switch(evt.type) {
           case Event.Type.KeyDown:
@@ -121,22 +117,17 @@ class PlayingState : GameState {
         }
       }
 
-      //uint dt = Tracker.sw.getElapsedTicks();
-      //Tracker.sw.reset();
       if (ship.turnLeft) {
         ship.sprite.rotate(-ship.turnSpeed * Tracker.dt);
       }
       else if (ship.turnRight) {
         ship.sprite.rotate(ship.turnSpeed * Tracker.dt);
       }
-      //if (ship.shipUp) {
-        //ship.sprite.move(0, -ship.speed * dt);
-        ship.move();
-      //}
+
+      ship.move();
 
       win.draw(stars1);
       win.draw(ship.sprite);
       win.display();
-    //}
   }
 }
