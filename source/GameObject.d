@@ -56,6 +56,11 @@ class Ship : GameObject {
     if (vely > maxSpeed) vely = maxSpeed;
     else if (vely < -maxSpeed) vely = -maxSpeed;
 
+    if (sprite.x > 800) sprite.x = -60;
+    else if (sprite.x + 60 < 0) sprite.x = 800;
+    if (sprite.y > 600) sprite.y = -60;
+    else if (sprite.y + 60 < 0) sprite.y = 600;
+
     sprite.move(velx, vely);
   }
 
