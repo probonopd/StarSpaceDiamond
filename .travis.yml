@@ -28,4 +28,4 @@ script:
 
 after_success:
   - ls
-  - ls app.d # https://github.com/CosmicCitadel/StarSpaceDiamond/issues/1#issuecomment-485451909
+  - find starspacediamond # https://github.com/CosmicCitadel/StarSpaceDiamond/issues/1#issuecomment-485451909
