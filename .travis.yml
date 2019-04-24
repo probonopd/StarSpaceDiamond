@@ -28,8 +28,9 @@ script:
   - ls
   - find starspacediamond # https://github.com/CosmicCitadel/StarSpaceDiamond/issues/1#issuecomment-485451909
   - file starspacediamond # Is this the main game executable?
-  - mkdir -p appdir/usr/bin ; cp starspacediamond appdir/usr/bin # FIXME, make install should do that
-  - mkdir -p appdir/usr/share/applications ; cp starspacediamond.desktop appdir/usr/share/applications # FIXME, make install should do that
+  - mkdir -p appdir/usr/bin ; cp starspacediamond appdir/usr/bin/ # FIXME, make install should do that
+  - cp -r resources appdir/usr/bin/ # FIXME, make install should do that
+  - mkdir -p appdir/usr/share/applications ; cp starspacediamond.desktop appdir/usr/share/applications/ # FIXME, make install should do that
   - mkdir -p appdir/usr/share/icons/scalable/apps/ ; touch appdir/usr/share/icons/scalable/apps/starspacediamond.svg # FIXME
   - cp appdir/usr/share/icons/scalable/apps/starspacediamond.svg . # FIXME
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
@@ -42,7 +43,7 @@ after_success:
   # find appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq # for debugging
   # curl --upload-file APPNAME*.AppImage https://transfer.sh/APPNAME-git.$(git rev-parse --short HEAD)-x86_64.AppImage
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-  - bash upload.sh APPNAME*.AppImage*
+  - bash upload.sh StarSpaceDiamond*.AppImage*
   
 branches:
   except:
