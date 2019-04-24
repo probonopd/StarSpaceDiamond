@@ -22,7 +22,10 @@ before_install:
 
 d:
   - dmd
-  # ldc
+
+script:
+  - dub build
 
 after_success:
   - ls
+  - ls app.d # https://github.com/CosmicCitadel/StarSpaceDiamond/issues/1#issuecomment-485451909
