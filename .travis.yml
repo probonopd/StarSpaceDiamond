@@ -35,7 +35,7 @@ script:
   - cp appdir/usr/share/icons/scalable/apps/starspacediamond.svg . # FIXME
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
-  - ./linuxdeployqt-continuous-x86_64.AppImage --appimage-extract susr/bin/patchelf
+  - ./linuxdeployqt-continuous-x86_64.AppImage --appimage-extract 'usr/bin/patchelf'
   - ./squashfs-root/usr/bin/patchelf --add-needed libGL.so.1 --add-needed libSDL2_image-2.0.so.0 --add-needed libSDL2_mixer-2.0.so.0 --add-needed libSDL2-2.0.so.0 --add-needed libSDL2_ttf-2.0.so.0 ./appdir/usr/bin/starspacediamond
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   # export VERSION=... # linuxdeployqt uses this for naming the file
